@@ -12,6 +12,18 @@
     <!-- jsp中的三个指令,page include taglib-->
     <%@include file="head.jsp"%>
     <%@include file="menu_search.jsp"%>
+    <div id="divad">
+        <img src="ad/index_ad.jpg">
+    </div>
+    <div id="divcontent">
+        <table>
+            <tr>
+                <td width=""><img src="images/billboard.gif">
+
+                </td>
+            </tr>
+        </table>
+    </div>
     <jsp:include page="foot.jsp"/>
 </body>
 </html>

@@ -1,0 +1,15 @@
+#divad{
+    width: 900px;
+    margin-right: auto;
+    margin-left: auto;
+}
+#divcontent{
+    width:900px;
+    background-color: #FCFDEF;
+    border:1px solid #EEEDDB;
+    margin-right: auto;
+    margin-left: auto;
+}
+#divhead{
+    width:100%
+}

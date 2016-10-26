@@ -1,6 +1,6 @@
 <!-- 主页的头部-->
 <%@page language="java" pageEncoding="UTF-8" %>
-<div>
+<div id="divheand">
     <table>
         <tr>
             <td>

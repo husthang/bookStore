@@ -1,4 +1,4 @@
-package cn.net.liuhang.bookStore.domain;
+package bookStore.liuhang.domain;
 
 import java.util.Date;
 
@@ -16,7 +16,15 @@ public class User {
     private String activeCode;//激活码
     private String role;//用户角色
     private String state;//用户状态
-    private Date registTime;//注册时间
+    private Date registerTime;//注册时间
+
+    public Date getRegisterTime() {
+        return registerTime;
+    }
+
+    public void setRegisterTime(Date registerTime) {
+        this.registerTime = registerTime;
+    }
 
     public String getActiveCode() {
         return activeCode;
@@ -40,14 +48,6 @@ public class User {
 
     public void setState(String state) {
         this.state = state;
-    }
-
-    public Date getRegistTime() {
-        return registTime;
-    }
-
-    public void setRegistTime(Date registTime) {
-        this.registTime = registTime;
     }
 
     public int getId() {

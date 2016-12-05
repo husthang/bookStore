@@ -4,4 +4,8 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>bookStore.liuhang.web.servlet.LoginServlet</servlet-class>
+    </servlet>
 </web-app>

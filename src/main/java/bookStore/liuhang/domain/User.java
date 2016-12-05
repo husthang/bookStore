@@ -1,4 +1,4 @@
-package cn.net.liuhang.bookStore.domain;
+package bookStore.liuhang.domain;
 
 import java.util.Date;
 

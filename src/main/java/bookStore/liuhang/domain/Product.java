@@ -1,4 +1,4 @@
-package cn.net.liuhang.bookStore.domain;
+package bookStore.liuhang.domain;
 
 /**
  * Created by liuhang on 2016/10/27.

@@ -15,25 +15,39 @@ import bookStore.liuhang.service.UserService;
 /**
  * Created by liuhang on 2016/12/8.
  */
-@WebServlet(name = "LoginServlet",urlPatterns = "/loginServlet")
+@WebServlet(name = "LoginServlet", urlPatterns = "/loginServlet")
 public class LoginServlet extends HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doGet(request,response);
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws
+            ServletException, IOException {
+        doGet(request, response);
     }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String username=request.getParameter("username");
-        String password=request.getParameter("password");
-        UserService userService=new UserService();
-        try{
-            String path="/index.jsp";
-            User user=userService.userLogin(username,password);
-            request.getSession().setAttribute("user",user);
-            request.getRequestDispatcher(path).forward(request,response);
-        }catch (UserException e){
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws
+            ServletException, IOException {
+        /**
+         * request.getParameter(String) 获得客户端提交的数据, 结合form表单
+         */
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
+        UserService userService = new UserService();
+        try {
+            String path = "/index.jsp";
+            User user = userService.userLogin(username, password);
+            if (user.getRole().equals("admin")) {
+                path = "/admin/login/home.jsp";
+            }
+            /**
+             * request.getSession方法得到session对象
+             */
+            request.getSession().setAttribute("user", user);
+            /**
+             * reques.getRequestDispatcher().forward实现请求转发
+             */
+            request.getRequestDispatcher(path).forward(request, response);
+        } catch (UserException e) {
             e.printStackTrace();
-            request.setAttribute("user_msg",e.getMessage());
-            request.getRequestDispatcher("/login.jsp").forward(request,response);
+            request.setAttribute("user_msg", e.getMessage());
+            request.getRequestDispatcher("/login.jsp").forward(request, response);
         }
 
     }

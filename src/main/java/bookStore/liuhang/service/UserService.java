@@ -13,11 +13,14 @@ public class UserService {
     private UserDao userDao = new UserDao();
 
     public User userLogin(String username, String password) throws UserException{
-        User user = null;
+        User user=null;
         try {
             user = userDao.findUserByUsernameAndPassword(username, password);
             if(user==null){
                 throw new UserException("用户名或者密码错误!");
+            }
+            if(user.getState()==0){
+                throw new UserException("用户未激活");
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -26,11 +29,12 @@ public class UserService {
         return user;
     }
 
-    public void userRegister(User user) {
+    public void userRegister(User user) throws UserException{
         try {
-            userDao.addUser(user);
+            userDao.addUser(user);//添加用户
         } catch (SQLException e) {
             e.printStackTrace();
+            throw new UserException("注册失败");
         }
     }
 }

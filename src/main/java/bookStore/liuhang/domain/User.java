@@ -15,7 +15,7 @@ public class User {
     private String introduce;//用户介绍
     private String activeCode;//激活码
     private String role;//用户角色
-    private String state;//用户状态
+    private int state;//用户状态
     private Date registerTime;//注册时间
 
     public Date getRegisterTime() {
@@ -42,11 +42,11 @@ public class User {
         this.role = role;
     }
 
-    public String getState() {
+    public int getState() {
         return state;
     }
 
-    public void setState(String state) {
+    public void setState(int state) {
         this.state = state;
     }
 

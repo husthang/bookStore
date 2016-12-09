@@ -10,6 +10,7 @@ import java.sql.Statement;
 
 /**
  * Created by liuhang on 2016/12/8.
+ * C3p0数据库连接池,连接数据库
  */
 public class C3p0Util {
     private static DataSource dataSource = new ComboPooledDataSource();

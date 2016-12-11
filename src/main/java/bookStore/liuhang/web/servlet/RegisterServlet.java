@@ -46,7 +46,7 @@ public class RegisterServlet extends HttpServlet {
             userService.userRegister(user);
             request.getRequestDispatcher("/registerSuccess.jsp").forward(request,response);
         } catch (UserException e) {
-            request.setAttribute("userMessage",e.getMessage());
+            request.setAttribute("registerMessage",e.getMessage());
             request.getRequestDispatcher("/register.jsp").forward(request,response);
             return;
         } catch (Exception e) {

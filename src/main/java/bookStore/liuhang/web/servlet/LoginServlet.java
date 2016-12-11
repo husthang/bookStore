@@ -49,7 +49,7 @@ public class LoginServlet extends HttpServlet {
             /**
              *
              */
-            request.setAttribute("user_msg", e.getMessage());
+            request.setAttribute("loginMessage", e.getMessage());
             request.getRequestDispatcher("/login.jsp").forward(request, response);
         }
 

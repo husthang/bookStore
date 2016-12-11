@@ -36,7 +36,7 @@
                                                 <tr>
                                                     <td style="text-align:center;padding-top:20px;">
                                                         <font
-                                                                color="#ff0000">${requestScope["user_msg"]}</font>
+                                                                color="#ff0000">${requestScope["loginMessage"]}</font>
                                                     </td>
                                                 </tr>
                                                 <tr>

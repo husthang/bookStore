@@ -30,7 +30,8 @@
         <table width="850px" border="0" cellspacing="0">
             <tr>
                 <td style="padding:30px">
-                    <h1>新会员注册 ${userMessage}</h1>
+                    <%--${userMessage}:没有指定范围,所以它会依序从Page、Request、Session、Application范围查找。--%>
+                    <h1>新会员注册 ${registerMessage}</h1>
 
                     <table width="70%" border="0" cellspacing="2" class="upline">
                         <tr>

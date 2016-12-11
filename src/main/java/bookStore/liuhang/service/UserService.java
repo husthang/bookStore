@@ -3,6 +3,7 @@ package bookStore.liuhang.service;
 import bookStore.liuhang.dao.UserDao;
 import bookStore.liuhang.domain.User;
 import bookStore.liuhang.exception.UserException;
+import bookStore.liuhang.util.EmailUtil;
 
 import java.sql.SQLException;
 
@@ -32,9 +33,23 @@ public class UserService {
     public void userRegister(User user) throws UserException{
         try {
             userDao.addUser(user);//添加用户
+            String emailMessage="注册成功,请<a href=\"http://localhost:8080/active?activeCode="+user.getActiveCode()+"\">激活</a>后登录";
+            EmailUtil.sendMail(user.getEmail(), emailMessage);
         } catch (SQLException e) {
             e.printStackTrace();
             throw new UserException("注册失败");
         }
     }
+     public void userActive(String activeCode) throws UserException {
+         try {
+             User user = userDao.findUserByActiveCode(activeCode);
+             if(user==null){
+                 throw new UserException("激活失败");
+             }
+             userDao.updateActiveState(activeCode);
+         } catch (SQLException e) {
+             e.printStackTrace();
+             throw new UserException("激活失败");
+         }
+     }
 }

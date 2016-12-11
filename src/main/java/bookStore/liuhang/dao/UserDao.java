@@ -38,12 +38,24 @@ public class UserDao {
          *   * 要求:
          *     * 使用 BeanHandler类时,javaBean中的属性必须和表中的字段名要一致,不区分大小写
          *     * 底层代码在查找是,就是通过表中的字段和javaBean的属性的名称一致对应
-         *     new BeanHandler<>(User.class),编译器可自动推断出new 返回一个User类型,<>中间可省略 泛型框架,用法需要看一下! Class<T>进行类型匹配
+         *     new BeanHandler<>(User.class),编译器可自动推断出new 返回一个User类型,<>中间可省略 泛型框架,用法需要看一下!
+         *     Class<T>进行类型匹配
          */
         /**
          * //这样也可以,此处存疑
          * return (User) queryRunner.query(sql, new BeanHandler(User.class), username, password);
          */
         return queryRunner.query(sql, new BeanHandler<>(User.class), username, password);
+    }
+
+    public User findUserByActiveCode(String activeCode) throws SQLException {
+        QueryRunner queryRunner = new QueryRunner(C3p0Util.getDataSource());
+        return queryRunner.query("select * from user where activeCode=?", new BeanHandler<>(User
+                .class), activeCode);
+    }
+
+    public void updateActiveState(String activeCode) throws SQLException {
+        QueryRunner queryRunner = new QueryRunner(C3p0Util.getDataSource());
+        queryRunner.update("update user set state=1 where activeCode=?", activeCode);
     }
 }

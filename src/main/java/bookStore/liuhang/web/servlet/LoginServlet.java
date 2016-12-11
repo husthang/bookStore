@@ -15,7 +15,7 @@ import bookStore.liuhang.service.UserService;
 /**
  * Created by liuhang on 2016/12/8.
  */
-@WebServlet(name = "LoginServlet", urlPatterns = "/loginServlet")
+@WebServlet(name = "LoginServlet", urlPatterns = "/login")
 public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws
             ServletException, IOException {
@@ -34,7 +34,7 @@ public class LoginServlet extends HttpServlet {
             String path = "/index.jsp";
             User user = userService.userLogin(username, password);
             if (user.getRole().equals("admin")) {
-                path = "/admin/login/home.jsp";
+                path = "/admin/login/home.jsp";//转到后台管理页面
             }
             /**
              * request.getSession方法得到session对象
@@ -46,6 +46,9 @@ public class LoginServlet extends HttpServlet {
             request.getRequestDispatcher(path).forward(request, response);
         } catch (UserException e) {
             e.printStackTrace();
+            /**
+             *
+             */
             request.setAttribute("user_msg", e.getMessage());
             request.getRequestDispatcher("/login.jsp").forward(request, response);
         }

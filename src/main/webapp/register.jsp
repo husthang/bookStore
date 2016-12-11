@@ -8,12 +8,11 @@
     <title>bookStore注册页面</title>
     <%--导入css --%>
     <link rel="stylesheet" href="css/main.css" type="text/css"/>
+    <%-- js脚本,点击,更换验证码图片--%>
     <script type="text/javascript">
         function changeImage() {
-
-            document.getElementById("img").src =
-                    "${pageContext.request.contextPath}/imageCode?time="
-                    + new Date().getTime();
+            document.getElementById("img").src = "${pageContext.request.contextPath}/checkImage?time=" + new Date().getTime();
+            <%--document.getElementById("img").src = "${pageContext.request.contextPath}/checkImage";--%>
         }
     </script>
 </head>
@@ -31,7 +30,7 @@
         <table width="850px" border="0" cellspacing="0">
             <tr>
                 <td style="padding:30px">
-                    <h1>新会员注册</h1>
+                    <h1>新会员注册 ${userMessage}</h1>
 
                     <table width="70%" border="0" cellspacing="2" class="upline">
                         <tr>
@@ -88,14 +87,15 @@
                     <table width="80%" border="0" cellspacing="2" class="upline">
                         <tr>
                             <td style="text-align:right; width:20%">输入校验码：</td>
-                            <td style="width:50%"><input type="text" class="textinput"/>
+                            <td style="width:50%"><input type="text" class="textinput"
+                                                         name="checkCode"/>
                             </td>
-                            <td>&nbsp;</td>
+                            <td>${checkCodeMessage}</td>
                         </tr>
                         <tr>
                             <td style="text-align:right;width:20%;">&nbsp;</td>
                             <td colspan="2" style="width:50%"><img
-                                    src="${pageContext.request.contextPath}/imageCode" width="180"
+                                    src="${pageContext.request.contextPath}/checkImage" width="180"
                                     height="30" class="textinput" style="height:30px;" id="img"/>&nbsp;&nbsp;
                                 <a href="javascript:void(0);" onclick="changeImage()">看不清换一张</a>
                             </td>

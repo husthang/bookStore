@@ -25,6 +25,7 @@ public class ActiveServlet extends HttpServlet {
         UserService userService=new UserService();
         try {
             userService.userActive(activeCode);
+            request.getRequestDispatcher("/activeSuccess.jsp").forward(request,response);
         } catch (UserException e) {
             e.printStackTrace();
             response.getWriter().write(e.getMessage());

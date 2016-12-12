@@ -10,5 +10,6 @@ CREATE TABLE user
     activecode VARCHAR(50),
     state INT(11),
     role VARCHAR(10) DEFAULT '普通用户',
+--     TIMESTAMP 类型,创建时自动加时间戳 http://www.yayu.org/look.php?id=144
     registerTime TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL
 );

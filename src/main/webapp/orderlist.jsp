@@ -22,7 +22,7 @@
                     <tr>
                         <td class="listtd"><img src="images/miniicon.gif" width="9"
                                                 height="6"/>&nbsp;&nbsp;&nbsp;&nbsp; <a
-                                href="modifyuserinfo.jsp">用户信息修改</a>
+                                href="modifyUserInfo.jsp">用户信息修改</a>
                         </td>
                     </tr>
 

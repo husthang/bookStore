@@ -22,7 +22,7 @@ public class MyAccountServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws
             ServletException, IOException {
-        User user = (User) request.getSession().getAttribute("user");
+        User user = (User) request.getSession().getAttribute("userInSession");
         if (user == null) {
             /**
              * response.sendRedirect客户端跳转
@@ -31,7 +31,7 @@ public class MyAccountServlet extends HttpServlet {
             response.sendRedirect(request.getContextPath() + "/login.jsp");
         } else {
             //普通用户页面
-            String path = "/myAccount.jsp";
+            String path = "/modifyUserInfo.jsp";
             if ("admin".equals(user.getRole())) {
                 //管理员页面
                 path = "/admin/login/home.jsp";

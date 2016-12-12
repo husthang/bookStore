@@ -24,32 +24,19 @@ public class LoginServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws
             ServletException, IOException {
-        /**
-         * request.getParameter(String) 获得客户端提交的数据, 结合form表单
-         */
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         UserService userService = new UserService();
         try {
-            String path = "/index.jsp";
+            String path = "/modifyUserInfo.jsp";
             User user = userService.userLogin(username, password);
             if (user.getRole().equals("admin")) {
                 path = "/admin/login/home.jsp";//转到后台管理页面
             }
-            /**
-             * request.getSession方法得到session对象
-             */
-            request.getSession().setAttribute("user", user);
-            /**
-             * reques.getRequestDispatcher().forward实现请求转发
-             */
+            request.getSession().setAttribute("userInSession", user);
             request.getRequestDispatcher(path).forward(request, response);
         } catch (UserException e) {
-            e.printStackTrace();
-            /**
-             *
-             */
-            request.setAttribute("loginMessage", e.getMessage());
+            request.setAttribute("loginMessageInRequest", e.getMessage());
             request.getRequestDispatcher("/login.jsp").forward(request, response);
         }
 

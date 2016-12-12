@@ -58,4 +58,8 @@ public class UserDao {
         QueryRunner queryRunner = new QueryRunner(C3p0Util.getDataSource());
         queryRunner.update("update user set state=1 where activeCode=?", activeCode);
     }
+    public User findUserById(int id) throws SQLException {
+        QueryRunner queryRunner=new QueryRunner(C3p0Util.getDataSource());
+        return queryRunner.query("select * from user where id=?", new BeanHandler<>(User.class), id);
+    }
 }

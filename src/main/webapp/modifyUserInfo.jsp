@@ -25,7 +25,7 @@
                     <tr>
                         <td class="listtd"><img src="images/miniicon.gif" width="9"
                                                 height="6"/>&nbsp;&nbsp;&nbsp;&nbsp; <a
-                                href="modifyuserinfo.jsp">用户信息修改</a></td>
+                                href="modifyUserInfo.jsp">用户信息修改</a></td>
                     </tr>
 
                     <tr>
@@ -37,7 +37,7 @@
 
                     <tr>
                         <td class="listtd"><img src="images/miniicon.gif" width="9"
-                                                height="6"/>&nbsp;&nbsp;&nbsp;&nbsp; <a href="#">用戶退出</a>
+                                                height="6"/>&nbsp;&nbsp;&nbsp;&nbsp; <a href="${pageContext.request.contextPath}/logout">用戶退出</a>
                         </td>
                     </tr>
                 </table>
@@ -57,14 +57,14 @@
                                 <table width="100%" border="0" cellspacing="2" class="upline">
                                     <tr>
                                         <td style="text-align:right; width:20%">会员邮箱：</td>
-                                        <td style="width:40%; padding-left:20px">tom@itcast.cn</td>
+                                        <td style="width:40%; padding-left:20px">${userInSession.email}</td>
                                         <td>&nbsp;</td>
 
 
                                     </tr>
                                     <tr>
                                         <td style="text-align:right">会员名：</td>
-                                        <td style="padding-left:20px">tom</td>
+                                        <td style="padding-left:20px">${userInSession.username}</td>
                                         <td>&nbsp;</td>
                                     </tr>
                                     <tr>
@@ -93,7 +93,7 @@
                                     <tr>
                                         <td style="text-align:right">联系方式：</td>
                                         <td colspan="2"><input name="telephone" type="text"
-                                                               value="13888888888"
+                                                               value="${userInSession.telephone}"
                                                                class="textinput"/>
                                         </td>
                                     </tr>

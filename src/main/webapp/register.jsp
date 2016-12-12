@@ -31,7 +31,7 @@
             <tr>
                 <td style="padding:30px">
                     <%--${userMessage}:没有指定范围,所以它会依序从Page、Request、Session、Application范围查找。--%>
-                    <h1>新会员注册 ${registerMessage}</h1>
+                    <h1>新会员注册 ${registerMessageInRequest}</h1>
 
                     <table width="70%" border="0" cellspacing="2" class="upline">
                         <tr>
@@ -106,8 +106,9 @@
 
                     <table width="70%" border="0" cellspacing="0">
                         <tr>
+                            <%--图像式的提交按钮 <input type="image">--%>
                             <td style="padding-top:20px; text-align:center"><input
-                                    type="image" src="images/signup.gif" name="submit" border="0">
+                                    type="image" src="images/signUp.gif" name="submit" border="0">
                             </td>
                         </tr>
                     </table>

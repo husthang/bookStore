@@ -36,7 +36,7 @@
                                                 <tr>
                                                     <td style="text-align:center;padding-top:20px;">
                                                         <font
-                                                                color="#ff0000">${requestScope["loginMessage"]}</font>
+                                                                color="#ff0000">${loginMessageInRequest}</font>
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -84,7 +84,7 @@
                                                                             name="image"
                                                                             type="image"
                                                                             onclick="return formcheck()"
-                                                                            src="images/loginbutton.gif"
+                                                                            src="images/loginButton.gif"
                                                                             width="83" height="22"/>
                                                                 </td>
                                                             </tr>

@@ -71,10 +71,10 @@
                                                                         type="checkbox"
                                                                         name="checkbox"
                                                                         value="checkbox"/>
-                                                                    记住用户名&nbsp;&nbsp; <input
-                                                                            type="checkbox"
-                                                                            name="checkbox"
-                                                                            value="checkbox"/> 自动登录
+                                                                    记住用户名&nbsp;&nbsp;
+                                                                    <input type="checkbox"
+                                                                           name="autoLogin"
+                                                                    /> 自动登录
                                                                 </td>
                                                             </tr>
                                                             <tr>

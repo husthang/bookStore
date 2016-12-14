@@ -13,9 +13,9 @@ import bookStore.liuhang.util.EmailUtil;
 public class UserService {
     private UserDao userDao = new UserDao();
 
-    //用户登陆
-    public User userLogin(String username, String password) throws UserException {
-        User user = null;
+    //根据用户名和密码查找用户
+    public User findUserByUsernameAndPassword(String username, String password) throws UserException {
+        User user;
         try {
             user = userDao.findUserByUsernameAndPassword(username, password);
             if (user == null) {
@@ -58,13 +58,4 @@ public class UserService {
         }
     }
 
-    //根据id查找用户
-    public User findUserById(int id) throws UserException {
-        try {
-            return userDao.findUserById(id);
-        } catch (SQLException e) {
-            e.printStackTrace();
-            throw new UserException("修改用户信息");
-        }
-    }
 }

@@ -7,6 +7,7 @@ import java.sql.SQLException;
 
 import bookStore.liuhang.domain.User;
 import bookStore.liuhang.util.C3p0Util;
+import bookStore.liuhang.util.MD5Util;
 
 /**
  * Created by liuhang on 2016/12/5.
@@ -20,7 +21,7 @@ public class UserDao {
         QueryRunner queryRunner = new QueryRunner(C3p0Util.getDataSource());
         String sql = "insert into user(username,password,gender,email,telephone,introduce," +
                 "activeCode,state,registerTime) values(?,?,?,?,?,?,?,?,?)";
-        queryRunner.update(sql, user.getUsername(), user.getPassword(), user.getGender(), user
+        queryRunner.update(sql, user.getUsername(), MD5Util.md5(user.getPassword()), user.getGender(), user
                 .getEmail(), user.getTelephone(), user.getIntroduce(), user.getActiveCode(), user
                 .getState(), user.getRegisterTime());
     }
@@ -57,9 +58,5 @@ public class UserDao {
     public void updateActiveState(String activeCode) throws SQLException {
         QueryRunner queryRunner = new QueryRunner(C3p0Util.getDataSource());
         queryRunner.update("update user set state=1 where activeCode=?", activeCode);
-    }
-    public User findUserById(int id) throws SQLException {
-        QueryRunner queryRunner=new QueryRunner(C3p0Util.getDataSource());
-        return queryRunner.query("select * from user where id=?", new BeanHandler<>(User.class), id);
     }
 }

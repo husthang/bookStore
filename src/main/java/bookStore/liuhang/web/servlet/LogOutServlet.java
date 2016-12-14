@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * Created by liuhang on 2016/12/12.
+ * 退出功能,销毁session
  */
 @WebServlet(name = "LogOutServlet",urlPatterns = "/logout")
 public class LogOutServlet extends HttpServlet {
